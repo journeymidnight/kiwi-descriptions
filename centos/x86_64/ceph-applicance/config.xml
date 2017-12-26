@@ -15,7 +15,7 @@
         <file name="/lib/kbd"/>
     </strip>
     <preferences>
-        <version>0.2.0</version>
+        <version>0.2.2</version>
         <packagemanager>yum</packagemanager>
         <bootsplash-theme>charge</bootsplash-theme>
         <locale>en_US</locale>
@@ -30,7 +30,7 @@
                 <volume name="var" size="51200"/>
             </systemdisk>
             <oemconfig>
-                <oem-systemsize>30720</oem-systemsize>
+                <oem-systemsize>81920</oem-systemsize>
                 <oem-swap>true</oem-swap>
                 <oem-swapsize>1024</oem-swapsize>
             </oemconfig>
@@ -38,6 +38,8 @@
     </preferences>
     <users>
         <user password="$1$wYJUgpM5$RXMMeASDc035eX.NbYWFl0" home="/root" name="root" groups="root"/>
+        <user password="$1$TzltPXyA$/biSepUxzk2XH/VHPz8tB1" home="/home/cloud-user" name="cloud-user" groups="cloud-user"/>
+        <user password="$1$AaPVmd9Q$bgmNGnP9oOG54XissaOaF." home="/home/fsuser" name="fsuser" id="10099" groups="fsuser" shell="/sbin/nologin"/>
     </users>
     <repository type="rpm-md" alias="repo_ceph">
         <source path="http://mirrors.aliyun.com/centos/7.4.1708/storage/x86_64/ceph-luminous/"/>
