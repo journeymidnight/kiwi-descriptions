@@ -15,7 +15,7 @@
         <file name="/lib/kbd"/>
     </strip>
     <preferences>
-        <version>0.2.1</version>
+        <version>0.2.0</version>
         <packagemanager>yum</packagemanager>
         <bootsplash-theme>charge</bootsplash-theme>
         <locale>en_US</locale>
@@ -26,10 +26,8 @@
         <type image="iso" flags="overlay" hybrid="true" firmware="uefi" hybridpersistent_filesystem="ext4" hybridpersistent="true"/>
         <type image="vmx" primary="true" filesystem="xfs" kernelcmdline="rhgb" bootloader="grub2" firmware="uefi"/>
         <type image="oem" boot="oemboot/rhel-07.0" filesystem="xfs" installiso="true" bootloader="grub2" firmware="uefi">
-            <size unit="G">80</size> 
             <systemdisk>
-                <volume name="var" size="50G" freespace="all" mountpoint="/var"/>
-                <volume name="@root" size="30G"/>
+                <volume name="var" size="51200"/>
             </systemdisk>
             <oemconfig>
                 <oem-systemsize>30720</oem-systemsize>
@@ -85,7 +83,6 @@
         <package name="vim" bootinclude="true"/>
         <package name="git" bootinclude="true"/>
         <package name="ntp" bootinclude="true"/>
-        <package name="lvm2" bootinclude="true"/>
 <!-- ceph packages -->
         <package name="fabric" bootinclude="true"/>
         <package name="ceph" bootinclude="true"/>
