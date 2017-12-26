@@ -82,6 +82,7 @@
 <!-- utils for xingyi packages -->
         <package name="vim" bootinclude="true"/>
         <package name="git" bootinclude="true"/>
+        <package name="ntp" bootinclude="true"/>
 <!-- ceph packages -->
         <package name="fabric" bootinclude="true"/>
         <package name="ceph" bootinclude="true"/>
