@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<image schemaversion="6.7" name="Ceph-CentOS-07.0">
+    <description type="system">
+        <author>Bamvor Zhang</author>
+        <contact>bamv2005@gmail.com</contact>
+        <specification>CentOS Enterprise 7 Ceph base on JeOS(Marcus Schaefer ms@suse.com)</specification>
+    </description>
+    <strip type="delete">
+        <file name="/usr/lib*/python*"/>
+        <file name="/usr/lib*/gconv"/>
+        <file name="/usr/share/zoneinfo"/>
+        <file name="/usr/share/i18n"/>
+        <file name="/lib/i686/nosegneg"/>
+        <file name="/lib/kbd"/>
+    </strip>
+    <preferences>
+        <version>0.2.0</version>
+        <packagemanager>yum</packagemanager>
+        <bootsplash-theme>charge</bootsplash-theme>
+        <locale>en_US</locale>
+        <keytable>us.map.gz</keytable>
+        <timezone>UTC</timezone>
+        <hwclock>utc</hwclock>
+        <rpm-check-signatures>false</rpm-check-signatures>
+        <type image="iso" flags="overlay" hybrid="true" firmware="uefi" hybridpersistent_filesystem="ext4" hybridpersistent="true"/>
+        <type image="vmx" primary="true" filesystem="xfs" kernelcmdline="rhgb" bootloader="grub2" firmware="uefi"/>
+        <type image="oem" boot="oemboot/rhel-07.0" filesystem="xfs" installiso="true" bootloader="grub2" firmware="uefi">
+            <systemdisk>
+                <volume name="var" size="51200"/>
+            </systemdisk>
+            <oemconfig>
+                <oem-systemsize>30720</oem-systemsize>
+                <oem-swap>true</oem-swap>
+                <oem-swapsize>1024</oem-swapsize>
+            </oemconfig>
+        </type>
+    </preferences>
+    <users>
+        <user password="$1$wYJUgpM5$RXMMeASDc035eX.NbYWFl0" home="/root" name="root" groups="root"/>
+    </users>
+    <repository type="rpm-md" alias="repo_ceph">
+        <source path="http://mirrors.aliyun.com/centos/7.4.1708/storage/x86_64/ceph-luminous/"/>
+    </repository>
+    <repository type="rpm-md" alias="repo_epel">
+        <source path="http://mirrors.aliyun.com/epel/7/x86_64/"/>
+    </repository>
+    <repository type="rpm-md" alias="repo_os">
+        <source path="http://mirrors.aliyun.com/centos/7.4.1708/os/x86_64/"/>
+    </repository>
+    <repository type="rpm-md" alias="repo_updates">
+        <source path="http://mirrors.aliyun.com/centos/7.4.1708/updates/x86_64/"/>
+    </repository>
+    <repository type="rpm-md" alias="repo_extras">
+        <source path="http://mirrors.aliyun.com/centos/7.4.1708/extras/x86_64/"/>
+    </repository>
+    <repository type="rpm-md" alias="repo_cephdeploy">
+        <source path="https://mirrors.aliyun.com/ceph/rpm-luminous/el7/noarch/"/>
+    </repository>
+    <repository type="rpm-md" alias="repo_samba">
+        <source path="http://reposamba.los-cn-north-1.lecloudapis.com"/>
+    </repository>
+<!-- Don't remove the following repos, they contain tools needed by kiwi -->
+    <repository type="rpm-md" priority="1" alias="kiwi-common-boot">
+        <source path="obs://Virtualization:Appliances:CommonBoot/CentOS_7"/>
+    </repository>
+    <packages type="image">
+        <namedCollection name="core"/>
+        <namedCollection name="console-internet"/>
+        <package name="syslinux"/>
+        <package name="grub2" bootinclude="true"/>
+        <package name="kernel"/>
+        <package name="plymouth-theme-charge" bootinclude="true"/>
+<!-- kiwi-tools package for centos has not yet been ported to CommonBoot
+     It contains tools like utimer or dcounter which provides
+     nice boot timer or progress dialogs for showing data transfer
+     progress. These tools are used by the kiwi installer if present
+     and improves the user experience but are not mandatory
+
+        <package name="kiwi-tools" bootinclude="true"/>
+-->
+<!-- utils for xingyi packages -->
+        <package name="vim" bootinclude="true"/>
+        <package name="git" bootinclude="true"/>
+<!-- ceph packages -->
+        <package name="fabric" bootinclude="true"/>
+        <package name="ceph" bootinclude="true"/>
+        <package name="ceph-common" bootinclude="true"/>
+        <package name="ceph-deploy" bootinclude="true"/>
+        <package name="nfs-utils" bootinclude="true"/>
+        <package name="samba" bootinclude="true"/>
+        <package name="samba-vfs-cephfs" bootinclude="true"/>
+        <package name="ctdb" bootinclude="true"/>
+        <package name="samba-client" bootinclude="true"/>
+    </packages>
+    <packages type="iso">
+        <package name="dracut-kiwi-live"/>
+    </packages>
+    <packages type="bootstrap">
+        <package name="filesystem"/>
+        <package name="basesystem"/>
+        <package name="yum-plugin-priorities"/>
+        <package name="grub2-efi-modules" bootinclude="true"/>
+        <package name="grub2-efi" bootinclude="true"/>
+        <package name="shim" arch="x86_64" bootinclude="true"/>
+    </packages>
+</image>
