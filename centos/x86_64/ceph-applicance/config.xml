@@ -15,7 +15,7 @@
         <file name="/lib/kbd"/>
     </strip>
     <preferences>
-        <version>0.2.3</version>
+        <version>0.2.4</version>
         <packagemanager>yum</packagemanager>
         <bootsplash-theme>charge</bootsplash-theme>
         <locale>en_US</locale>
@@ -73,6 +73,7 @@
         <package name="grub2" bootinclude="true"/>
         <package name="kernel"/>
         <package name="plymouth-theme-charge" bootinclude="true"/>
+        <package name="gptfdisk" bootinclude="true"/>
 <!-- kiwi-tools package for centos has not yet been ported to CommonBoot
      It contains tools like utimer or dcounter which provides
      nice boot timer or progress dialogs for showing data transfer
