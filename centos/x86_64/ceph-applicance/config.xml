@@ -4,7 +4,7 @@
     <description type="system">
         <author>Bamvor Zhang</author>
         <contact>bamv2005@gmail.com</contact>
-        <specification>CentOS Enterprise 7 Ceph base on JeOS(Marcus Schaefer ms@suse.com)</specification>
+        <specification>CentOS Enterprise 7 Ceph base on JeOS(Marcus Schaefer ms@suse.com). Fix missing lvm2 in boot image</specification>
     </description>
     <strip type="delete">
         <file name="/usr/lib*/python*"/>
@@ -15,7 +15,7 @@
         <file name="/lib/kbd"/>
     </strip>
     <preferences>
-        <version>0.2.2</version>
+        <version>0.2.3</version>
         <packagemanager>yum</packagemanager>
         <bootsplash-theme>charge</bootsplash-theme>
         <locale>en_US</locale>
@@ -83,17 +83,18 @@
 -->
 <!-- utils for xingyi packages -->
         <package name="vim" bootinclude="true"/>
-        <package name="git" bootinclude="true"/>
-        <package name="ntp" bootinclude="true"/>
+        <package name="lvm2" bootinclude="true"/>
+        <package name="git"/>
+        <package name="ntp"/>
 <!-- ceph packages -->
-        <package name="fabric" bootinclude="true"/>
-        <package name="ceph" bootinclude="true"/>
-        <package name="ceph-common" bootinclude="true"/>
-        <package name="ceph-deploy" bootinclude="true"/>
+        <package name="fabric"/>
+        <package name="ceph"/>
+        <package name="ceph-common"/>
+        <package name="ceph-deploy"/>
         <package name="nfs-utils" bootinclude="true"/>
         <package name="samba" bootinclude="true"/>
         <package name="samba-vfs-cephfs" bootinclude="true"/>
-        <package name="ctdb" bootinclude="true"/>
+        <package name="ctdb"/>
         <package name="samba-client" bootinclude="true"/>
     </packages>
     <packages type="iso">
