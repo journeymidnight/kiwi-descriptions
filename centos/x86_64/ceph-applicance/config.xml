@@ -15,7 +15,7 @@
         <file name="/lib/kbd"/>
     </strip>
     <preferences>
-        <version>0.2.7</version>
+        <version>0.3.0</version>
         <packagemanager>yum</packagemanager>
         <bootsplash-theme>charge</bootsplash-theme>
         <locale>en_US</locale>
@@ -25,7 +25,7 @@
         <rpm-check-signatures>false</rpm-check-signatures>
         <type image="iso" flags="overlay" hybrid="true" firmware="uefi" hybridpersistent_filesystem="ext4" hybridpersistent="true"/>
         <type image="vmx" primary="true" filesystem="xfs" kernelcmdline="rhgb" bootloader="grub2" firmware="uefi"/>
-        <type image="oem" boot="oemboot/rhel-07.0" filesystem="xfs" installiso="true" bootloader="grub2" bootloader_console="serial" firmware="uefi">
+        <type image="oem" boot="oemboot/rhel-07.0" filesystem="xfs" installiso="true" bootloader="grub2" bootloader_console="serial" kernelcmdline="console=ttyS0,115200" firmware="uefi">
             <systemdisk>
                 <volume name="var" size="51200"/>
             </systemdisk>
@@ -37,7 +37,7 @@
         </type>
     </preferences>
     <users>
-        <user password="$1$wYJUgpM5$RXMMeASDc035eX.NbYWFl0" home="/root" name="root" groups="root"/>
+        <user password="$1$oM/ZHXR.$eXAkhwj6IN46GWHh164Jj0" home="/root" name="root" groups="root"/>
         <user password="$1$TzltPXyA$/biSepUxzk2XH/VHPz8tB1" home="/home/cloud-user" name="cloud-user" groups="cloud-user"/>
         <user password="$1$AaPVmd9Q$bgmNGnP9oOG54XissaOaF." home="/home/fsuser" name="fsuser" id="10099" groups="fsuser" shell="/sbin/nologin"/>
     </users>
