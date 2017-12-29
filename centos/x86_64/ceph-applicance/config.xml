@@ -15,7 +15,7 @@
         <file name="/lib/kbd"/>
     </strip>
     <preferences>
-        <version>0.3.3</version>
+        <version>0.3.2</version>
         <packagemanager>yum</packagemanager>
         <bootsplash-theme>charge</bootsplash-theme>
         <locale>en_US</locale>
@@ -25,7 +25,7 @@
         <rpm-check-signatures>false</rpm-check-signatures>
         <type image="iso" flags="overlay" hybrid="true" firmware="uefi" hybridpersistent_filesystem="ext4" hybridpersistent="true"/>
         <type image="vmx" primary="true" filesystem="xfs" kernelcmdline="rhgb" bootloader="grub2" firmware="uefi"/>
-        <type image="oem" boot="oemboot/rhel-07.0" filesystem="xfs" installiso="true" bootloader="grub2" bootloader_console="console serial" kernelcmdline="console=ttyS0,115200 console=tty" firmware="uefi">
+        <type image="oem" boot="oemboot/rhel-07.0" filesystem="xfs" installiso="true" bootloader="grub2" bootloader_console="serial" kernelcmdline="console=ttyS0,115200 console=tty" firmware="uefi">
             <systemdisk>
                 <volume name="var" size="51200"/>
             </systemdisk>
