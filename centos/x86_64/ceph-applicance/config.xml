@@ -15,7 +15,7 @@
         <file name="/lib/kbd"/>
     </strip>
     <preferences>
-        <version>0.3.2</version>
+        <version>0.3.3</version>
         <packagemanager>yum</packagemanager>
         <bootsplash-theme>charge</bootsplash-theme>
         <locale>en_US</locale>
@@ -62,6 +62,11 @@
     <repository type="rpm-md" alias="repo_samba">
         <source path="http://reposamba.los-cn-north-1.lecloudapis.com"/>
     </repository>
+<!--
+    <repository type="rpm-md" alias="rpms">
+        <source path="/home/suse01/works/source/kiwi-descriptions/centos/x86_64/ceph-applicance/rpms"/>
+    </repository>
+-->
 <!-- Don't remove the following repos, they contain tools needed by kiwi -->
     <repository type="rpm-md" priority="1" alias="kiwi-common-boot">
         <source path="obs://Virtualization:Appliances:CommonBoot/CentOS_7"/>
@@ -102,6 +107,11 @@
         <package name="samba-vfs-cephfs" bootinclude="true"/>
         <package name="ctdb"/>
         <package name="samba-client" bootinclude="true"/>
+        <package name="xfsprogs" bootinclude="true"/>
+<!--prometheus packages -->
+        <package name="ceph_exporter"/>
+        <package name="node-exporter"/>
+        <package name="prometheus"/>
     </packages>
     <packages type="iso">
         <package name="dracut-kiwi-live"/>
