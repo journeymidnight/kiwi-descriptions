@@ -4,7 +4,7 @@
     <description type="system">
         <author>Bamvor Zhang</author>
         <contact>bamv2005@gmail.com</contact>
-        <specification>CentOS Enterprise 7 Ceph base on JeOS(Marcus Schaefer ms@suse.com).</specification>
+        <specification>CentOS Enterprise 7 Ceph base on JeOS(Marcus Schaefer ms@suse.com). download additional file in download.sh </specification>
     </description>
     <strip type="delete">
         <file name="/usr/lib*/python*"/>
@@ -15,7 +15,7 @@
         <file name="/lib/kbd"/>
     </strip>
     <preferences>
-        <version>0.3.4</version>
+        <version>0.4.0</version>
         <packagemanager>yum</packagemanager>
         <bootsplash-theme>charge</bootsplash-theme>
         <locale>en_US</locale>
@@ -86,7 +86,7 @@
 
         <package name="kiwi-tools" bootinclude="true"/>
 -->
-<!-- utils for xingyi packages -->
+<!-- utils for our packages -->
         <package name="vim" bootinclude="true"/>
         <package name="git"/>
         <package name="ntp"/>
@@ -110,6 +110,11 @@
         <package name="ceph_exporter"/>
         <package name="node-exporter"/>
         <package name="prometheus"/>
+        <package name="automata"/>
+        <package name="nier"/>
+        <package name="niergui"/>
+<!--tar packages -->
+        <archive name="binaries.tar.gz"/>
     </packages>
     <packages type="iso">
         <package name="dracut-kiwi-live"/>
