@@ -4,7 +4,7 @@
     <description type="system">
         <author>Bamvor Zhang</author>
         <contact>bamv2005@gmail.com</contact>
-        <specification>CentOS Enterprise 7 Ceph base on JeOS(Marcus Schaefer ms@suse.com). download additional file in download.sh </specification>
+        <specification>CentOS Enterprise 7 Ceph base on JeOS(Marcus Schaefer ms@suse.com). download additional file in download.sh(correct but lack md5sum checking)</specification>
     </description>
     <strip type="delete">
         <file name="/usr/lib*/python*"/>
@@ -15,7 +15,7 @@
         <file name="/lib/kbd"/>
     </strip>
     <preferences>
-        <version>0.4.0</version>
+        <version>0.4.1</version>
         <packagemanager>yum</packagemanager>
         <bootsplash-theme>charge</bootsplash-theme>
         <locale>en_US</locale>
