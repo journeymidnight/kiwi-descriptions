@@ -1,0 +1,25 @@
+From 9df6709f45a7c5d83702c9b2b4b81f9d4ea0d047 Mon Sep 17 00:00:00 2001
+From: Bamvor Zhang <bamv2005@gmail.com>
+Date: Tue, 9 Jan 2018 04:58:01 -0500
+Subject: [PATCH 2/2] output log to serial
+
+Signed-off-by: Bamvor Zhang <bamv2005@gmail.com>
+---
+ kiwi/boot/functions.sh | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/kiwi/boot/functions.sh b/kiwi/boot/functions.sh
+index ecb03d2e..67781a2a 100644
+--- a/kiwi/boot/functions.sh
++++ b/kiwi/boot/functions.sh
+@@ -173,6 +173,7 @@ function Echo {
+         set -x
+     fi
+     echo $optn $opte "$prefix $1"
++    echo "BAMVOR: Echo to ttyS0: $1" >> /dev/ttyS0
+     if [ $ELOG_STOPPED = 0 ];then
+         set +x
+     fi
+-- 
+2.13.6
+
