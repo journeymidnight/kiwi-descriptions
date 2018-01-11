@@ -4,7 +4,7 @@
     <description type="system">
         <author>Bamvor Zhang</author>
         <contact>bamv2005@gmail.com</contact>
-        <specification>CentOS Enterprise 7 Ceph base on JeOS(Marcus Schaefer ms@suse.com). download additional file in download.sh(correct but lack md5sum checking)</specification>
+        <specification>CentOS Enterprise 7 Ceph base on JeOS(Marcus Schaefer ms@suse.com). prepare TiDB environment</specification>
     </description>
     <strip type="delete">
         <file name="/usr/lib*/python*"/>
@@ -15,7 +15,7 @@
         <file name="/lib/kbd"/>
     </strip>
     <preferences>
-        <version>0.4.1</version>
+        <version>0.5</version>
         <packagemanager>yum</packagemanager>
         <bootsplash-theme>charge</bootsplash-theme>
         <locale>en_US</locale>
@@ -31,8 +31,7 @@
             </systemdisk>
             <oemconfig>
                 <oem-systemsize>81920</oem-systemsize>
-                <oem-swap>true</oem-swap>
-                <oem-swapsize>1024</oem-swapsize>
+                <oem-swap>false</oem-swap>
             </oemconfig>
         </type>
     </preferences>
@@ -40,6 +39,7 @@
         <user password="$1$oM/ZHXR.$eXAkhwj6IN46GWHh164Jj0" home="/root" name="root" groups="root"/>
         <user password="$1$TzltPXyA$/biSepUxzk2XH/VHPz8tB1" home="/home/cloud-user" name="cloud-user" groups="cloud-user"/>
         <user password="$1$AaPVmd9Q$bgmNGnP9oOG54XissaOaF." home="/home/fsuser" name="fsuser" id="10099" groups="fsuser" shell="/sbin/nologin"/>
+        <user password="$1$appPNs.6$VB8w6i9e6I07WU4V.o5V0." home="/home/tidb" name="tidb" groups="tidb"/>
     </users>
     <repository type="rpm-md" alias="repo_ceph">
         <source path="http://mirrors.aliyun.com/centos/7.4.1708/storage/x86_64/ceph-luminous/"/>
@@ -113,6 +113,8 @@
         <package name="automata"/>
         <package name="nier"/>
         <package name="niergui"/>
+<!-- utils for TiDB -->
+        <package name="ntp"/>
 <!--tar packages -->
         <archive name="binaries.tar.gz"/>
     </packages>
