@@ -1,7 +1,7 @@
 #!/bin/bash
 
 account="bjzhang"
-token="4de98236b1126a727da929d2c9aeac8339fbac82"
+token=$1
 
 download_asset()
 {
@@ -50,6 +50,10 @@ download_all_tars()
 	curl -o ${repo}_${url##*/}.tar.gz -u $account:$token -L $url
 }
 
+if [ "$token" = "" ]; then
+	echo "github api token mission, exit"
+	exit 127
+fi
 cd rpms
 rm * -rf
 download_rpms journeymidnight nier rpm
