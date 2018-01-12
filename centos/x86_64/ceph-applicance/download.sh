@@ -63,12 +63,12 @@ download_rpms journeymidnight prometheus-rpm rpm "ceph_exporter node-exporter pr
 cd ..
 cd binaries
 download_all_tars journeymidnight storedeployer
-#curl -O -L http://download.pingcap.org/tidb-latest-linux-amd64.tar.gz
-#curl -O -L http://download.pingcap.org/tidb-latest-linux-amd64.sha256
-#sha256sum -c tidb-latest-linux-amd64.sha256
-#if [ $? != 0 ]; then
-#	echo "download tidb failed. exit!"
-#	exit 127
-#fi
+curl -O -L http://download.pingcap.org/tidb-latest-linux-amd64.tar.gz
+curl -O -L http://download.pingcap.org/tidb-latest-linux-amd64.sha256
+sha256sum -c tidb-latest-linux-amd64.sha256
+if [ $? != 0 ]; then
+	echo "download tidb failed. exit!"
+	exit 127
+fi
 cd ..
 tar zcvf binaries.tar.gz binaries
