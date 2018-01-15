@@ -15,7 +15,7 @@
         <file name="/lib/kbd"/>
     </strip>
     <preferences>
-        <version>0.5.3</version>
+        <version>0.5.4</version>
         <packagemanager>yum</packagemanager>
         <bootsplash-theme>charge</bootsplash-theme>
         <locale>en_US</locale>
@@ -95,6 +95,7 @@
         <package name="xz"/>
         <package name="bzip2"/>
         <package name="gzip"/>
+        <package name="screen"/>
 <!-- ceph packages -->
         <package name="fabric"/>
         <package name="ceph"/>
