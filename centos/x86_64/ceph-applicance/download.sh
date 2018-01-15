@@ -70,5 +70,6 @@ if [ $? != 0 ]; then
 	echo "download tidb failed. exit!"
 	exit 127
 fi
+tar zxf tidb-latest-linux-amd64.tar.gz
 cd ..
 tar zcvf binaries.tar.gz binaries
