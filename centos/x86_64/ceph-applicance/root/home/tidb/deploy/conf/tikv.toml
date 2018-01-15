@@ -6,16 +6,15 @@
 #    e.g.: 78_000 = "1.3m"
 
 
-advertise-addr = "XXX.XXX.XXX.XXX:20160"
-endpoints = "XXX.XXX.XXX.XXA:2379,XXX.XXX.XXX.XXB:2379,XXX.XXX.XXX.XXC:2379"
-
 [server]
 labels = {  }
+advertise-addr = "XXX.XXX.XXX.XXX:20160"
 
 [storage]
 
 [pd]
 # This section will be overwritten by command line parameters
+endpoints = ["XXX.XXX.XXX.XXA:2379","XXX.XXX.XXX.XXB:2379","XXX.XXX.XXX.XXC:2379"]
 
 [metric]
 address = ""
