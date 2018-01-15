@@ -28,8 +28,9 @@ echo "$deploy_user        soft        nofile        1000000" >> $LIMITS_CONF
 echo "$deploy_user        hard        nofile        1000000" >> $LIMITS_CONF
 echo "$deploy_user        soft        core          unlimited" >> $LIMITS_CONF
 echo "$deploy_user        soft        stack         10240" >> $LIMITS_CONF
-mv binaries/tidb-latest-linux-amd64/bin/ /home/tidb/deploy
+mv /binaries/tidb-latest-linux-amd64/bin/ /home/tidb/deploy
 mkdir -p /home/tidb/deploy/log
+mkdir -p /home/tidb/deploy/status
 
 #======================================
 # Setup default target, multi-user
