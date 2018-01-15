@@ -1,0 +1,31 @@
+# PD Configuration
+name = "pdX" 
+client-urls = "http://XXX.XXX.XXX.XXX:2379"
+advertise-client-urls = "http://XXX.XXX.XXX.XXX:2379"
+peer-urls = "http://XXX.XXX.XXX.XXX:2380"
+advertise-peer-urls = "http://XXX.XXX.XXX.XXX:2380"
+initial-cluster="pd1=http://XXX.XXX.XXX.XXA:2380,pd2=http://XXX.XXX.XXX.XXB:2380,pd3=http://XXX.XXX.XXX.XXC:2380"
+initial-cluster-state = "new"
+
+lease = 3
+tso-save-interval = "3s"
+
+[log]
+level = "info"
+
+[log.file]
+
+[metric]
+address = ""
+interval = "15s"
+
+[schedule]
+leader-schedule-limit = 64
+max-snapshot-count = 3
+max-store-down-time = "1h"
+region-schedule-limit = 16
+replica-schedule-limit = 24
+
+[replication]
+location-labels = []
+max-replicas = 3

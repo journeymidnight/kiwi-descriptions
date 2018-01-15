@@ -1,0 +1,47 @@
+# TiDB Configuration.
+
+path = "XXX.XXX.XXX.XXA:2379,XXX.XXX.XXX.XXB:2379,XXX.XXX.XXX.XXB:2379"
+
+host = "0.0.0.0"
+lease = "10s"
+run-ddl = true
+store = "tikv"
+
+[log]
+disable-timestamp = false
+format = "text"
+level = "info"
+query-log-max-len = 2048
+slow-threshold = 300
+
+[log.file]
+log-rotate = true
+
+[security]
+ssl-ca = ""
+ssl-cert = ""
+ssl-key = ""
+
+[status]
+metrics-addr = ""
+metrics-interval = 15
+report-status = true
+
+[performance]
+cross-join = true
+join-concurrency = 5
+retry-limit = 10
+run-auto-analyze = true
+stats-lease = "3s"
+tcp-keep-alive = true
+
+[xprotocol]
+xhost = "0.0.0.0"
+xport = 14000
+xserver = false
+xsocket = ""
+
+[plan-cache]
+plan-cache-capacity = 2560
+plan-cache-enabled = false
+plan-cache-shards = 256
