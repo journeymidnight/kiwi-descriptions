@@ -30,10 +30,8 @@ sysctl -w fs.file-max=1000000
 LIMITS_CONF="/etc/security/limits.conf"
 echo "$deploy_user        soft        nofile        1000000" >> $LIMITS_CONF
 echo "$deploy_user        hard        nofile        1000000" >> $LIMITS_CONF
-echo "$deploy_user        soft        core          unlimited"
->> $LIMITS_CONF
-echo "$deploy_user        soft        stack         10240" >> $
-LIMITS_CONF
+echo "$deploy_user        soft        core          unlimited" >> $LIMITS_CONF
+echo "$deploy_user        soft        stack         10240" >> $ LIMITS_CONF
 
 #======================================
 # Setup default target, multi-user
