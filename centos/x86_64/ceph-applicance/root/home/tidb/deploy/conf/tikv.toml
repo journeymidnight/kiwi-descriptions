@@ -1,0 +1,40 @@
+# TiKV config template
+#  Human-readable big numbers:
+#   File size(based on byte): KB, MB, GB, TB, PB
+#    e.g.: 1_048_576 = "1MB"
+#   Time(based on ms): ms, s, m, h
+#    e.g.: 78_000 = "1.3m"
+
+
+advertise-addr = "XXX.XXX.XXX.XXX:20160"
+endpoints = "XXX.XXX.XXX.XXA:2379,XXX.XXX.XXX.XXB:2379,XXX.XXX.XXX.XXC:2379"
+
+[server]
+labels = {  }
+
+[storage]
+
+[pd]
+# This section will be overwritten by command line parameters
+
+[metric]
+address = ""
+interval = "15s"
+job = "tikv"
+
+[raftstore]
+raftdb-path = ""
+sync-log = false
+
+[rocksdb]
+wal-dir = ""
+
+[rocksdb.defaultcf]
+
+[rocksdb.lockcf]
+
+[rocksdb.writecf]
+
+[raftdb]
+
+[raftdb.defaultcf]
