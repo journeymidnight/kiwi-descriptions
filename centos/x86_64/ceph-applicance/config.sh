@@ -19,8 +19,14 @@ baseMount
 # Activate services
 #--------------------------------------
 #...
+echo "enable ntpd"
 systemctl enable ntpd
+echo "disble firewalld"
 systemctl disable firewalld
+echo "disable selinux(after reboot)"
+sed -ibak "s/^SELINUX=.*$/SELINUX=disabled/g" /etc/selinux/config
+
+echo "configure tidb"
 deploy_user=tidb
 echo "Configuration system and user limitation"
 LIMITS_CONF="/etc/security/limits.conf"
