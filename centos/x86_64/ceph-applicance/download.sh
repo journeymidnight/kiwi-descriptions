@@ -54,16 +54,22 @@ if [ "$token" = "" ]; then
 	echo "github api token mission, exit"
 	exit 127
 fi
+echo "Cleaning up"
+rm rpms/* -rf
+rm binaries/* -rf
+mkdir -p rpms binaries
+
+echo "Downloading rpms"
 cd rpms
-rm * -rf
 download_rpms journeymidnight nier rpm
 download_rpms journeymidnight niergui rpm
 download_rpms journeymidnight automata rpm
 download_rpms journeymidnight prometheus-rpm rpm "ceph_exporter node-exporter prometheus"
 cd ..
+echo "Downloading binaries"
 cd binaries
-download_all_tars journeymidnight storedeployer
-rm -rf tidb*
+#download_all_tars journeymidnight storedeployer
+download_all_tars bjzhang storedeployer
 curl -O -L http://download.pingcap.org/tidb-latest-linux-amd64.tar.gz
 curl -O -L http://download.pingcap.org/tidb-latest-linux-amd64.sha256
 sha256sum -c tidb-latest-linux-amd64.sha256
@@ -74,3 +80,4 @@ fi
 tar zxf tidb-latest-linux-amd64.tar.gz
 cd ..
 tar zcvf binaries.tar.gz binaries
+
