@@ -34,7 +34,7 @@ echo "$deploy_user        soft        nofile        1000000" >> $LIMITS_CONF
 echo "$deploy_user        hard        nofile        1000000" >> $LIMITS_CONF
 echo "$deploy_user        soft        core          unlimited" >> $LIMITS_CONF
 echo "$deploy_user        soft        stack         10240" >> $LIMITS_CONF
-mv /binaries/tidb-latest-linux-amd64/bin/ /home/tidb/deploy
+mv /binaries/tidb-v1.0.6-linux-amd64/bin/ /home/tidb/deploy
 mkdir -p /home/tidb/deploy/log
 chown tidb:tidb /home/tidb/deploy/log -R
 mkdir -p /home/tidb/deploy/status
