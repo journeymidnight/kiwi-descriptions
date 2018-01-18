@@ -33,7 +33,7 @@
         </type>
     </preferences>
     <users>
-        <user password="$1$wYJUgpM5$RXMMeASDc035eX.NbYWFl0" home="/root" name="root" groups="root"/>
+        <user password="$1$oM/ZHXR.$eXAkhwj6IN46GWHh164Jj0" home="/root" name="root" groups="root"/>
     </users>
     <repository type="rpm-md" alias="centos">
         <source path="http://mirrors.aliyun.com/centos/7/os/x86_64/"/>
