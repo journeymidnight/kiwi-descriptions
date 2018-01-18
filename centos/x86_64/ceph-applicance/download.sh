@@ -37,8 +37,24 @@ download_rpms()
 	repo=$2
 	type=$3
 	filelist=$4
+	echo $filelist
 	json=`curl -u $account:$token -s https://api.github.com/repos/$user/$repo/releases/latest`
-	download_asset $user $repo "$json" "$filelist"
+	if [ "$filelist" = "" ]; then
+		download_asset $user $repo "$json"
+	else
+		download_asset $user $repo "$json" "$filelist md5sum.txt"
+	fi
+	md5sum -c md5sum.txt
+	ret="$?"
+	if [ "$ret" = "0" ]; then
+		echo "md5 check pass:"
+		cat md5sum.txt
+	else
+		echo "md5 check fail, exit:"
+		cat md5sum.txt
+		exit
+	fi
+	rm md5sum.txt
 }
 
 download_all_tars()
@@ -64,7 +80,7 @@ cd rpms
 download_rpms journeymidnight nier rpm
 download_rpms journeymidnight niergui rpm
 download_rpms journeymidnight automata rpm
-download_rpms journeymidnight prometheus-rpm rpm "ceph_exporter node-exporter prometheus"
+download_rpms journeymidnight prometheus-rpm rpm
 cd ..
 echo "Downloading binaries"
 cd binaries
