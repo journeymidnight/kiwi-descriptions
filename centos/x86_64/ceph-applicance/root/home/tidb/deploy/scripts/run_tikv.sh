@@ -15,7 +15,16 @@ stat=$(time sync)
 echo ok
 echo $stat
 
-echo $$ > "status/tikv.pid"
+#check pd is working
+export hostname=$(hostname)
+
+status_code=$(/usr/bin/curl --connect-timeout 3 -s -o /dev/null -w ''%{http_code}'' http://${hostname}:2379/pd/api/v1/members)
+
+if [[ $status_code = "200" ]] ;then
+    echo $$ > "status/tikv.pid"
+else
+    exit 1
+fi
 
 exec bin/tikv-server \
     --addr "0.0.0.0:20160" \
