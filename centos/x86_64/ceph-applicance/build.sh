@@ -20,7 +20,7 @@ cd ..
 
 echo "Downloading rpm and binaries(skip TiDB as we do not udpate when necessary)"
 cd /home/suse01/works/source/kiwi-descriptions/centos/x86_64/ceph-applicance
-bash ./download.sh $token
+#bash ./download.sh $token
 cd rpms
 rm repodata -rf
 createrepo .

@@ -15,7 +15,7 @@
         <file name="/lib/kbd"/>
     </strip>
     <preferences>
-        <version>0.6.2</version>
+        <version>0.6.7</version>
         <packagemanager>yum</packagemanager>
         <bootsplash-theme>charge</bootsplash-theme>
         <locale>en_US</locale>
@@ -30,7 +30,7 @@
                 <volume name="var" size="51200"/>
             </systemdisk>
             <oemconfig>
-                <oem-systemsize>81920</oem-systemsize>
+                <oem-systemsize>2048</oem-systemsize>
                 <oem-swap>false</oem-swap>
             </oemconfig>
         </type>
@@ -66,7 +66,10 @@
         <source path="file:///home/suse01/works/source/kiwi-descriptions/centos/x86_64/ceph-applicance/rpms"/>
     </repository>
     <repository type="rpm-md" alias="KIWI-NG_Appliance">
+<!--
         <source path="https://download.opensuse.org/repositories/home:/MartinMohring:/KIWI-NG:/Appliance/CentOS_7/"/>
+-->
+        <source path="file:///home/suse01/works/software/KIWI_NG/"/>
     </repository>
 <!-- Don't remove the following repos, they contain tools needed by kiwi -->
     <repository type="rpm-md" priority="1" alias="kiwi-common-boot">
