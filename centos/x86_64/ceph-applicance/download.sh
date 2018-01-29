@@ -94,7 +94,7 @@ echo "Downloading binaries"
 cd binaries
 rm storedeployer* -rf
 download_all_tars journeymidnight storedeployer
-rm tidb-v1.0.6-linux-amd64.sha256
+rm -f tidb-v1.0.6-linux-amd64.sha256
 $CURL -O -L http://download.pingcap.org/tidb-v1.0.6-linux-amd64.sha256
 sha256sum -c tidb-v1.0.6-linux-amd64.sha256
 if [ $? != 0 ]; then
