@@ -59,7 +59,7 @@
         <source path="https://mirrors.aliyun.com/ceph/rpm-luminous/el7/noarch/"/>
     </repository>
     <repository type="rpm-md" alias="repo_samba">
-        <source path="http://reposamba.los-cn-north-1.lecloudapis.com"/>
+        <source path="https://reposamba.los-cn-north-1.lecloudapis.com"/>
     </repository>
     <repository type="rpm-md" alias="rpms">
         <source path="file:///home/vagrant/works/source/kiwi-descriptions/centos/x86_64/ceph-applicance/rpms"/>
