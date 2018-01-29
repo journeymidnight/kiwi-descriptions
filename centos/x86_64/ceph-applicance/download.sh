@@ -72,7 +72,6 @@ if [ "$token" = "" ]; then
 fi
 echo "Cleaning up"
 rm rpms/* -rf
-rm binaries/* -rf
 mkdir -p rpms binaries
 
 echo "Downloading rpms"
@@ -84,16 +83,23 @@ download_rpms journeymidnight prometheus-rpm rpm
 cd ..
 echo "Downloading binaries"
 cd binaries
-#download_all_tars journeymidnight storedeployer
-download_all_tars bjzhang storedeployer
-#curl -O -L http://download.pingcap.org/tidb-v1.0.6-linux-amd64.tar.gz
-#curl -O -L http://download.pingcap.org/tidb-v1.0.6-linux-amd64.sha256
-#sha256sum -c tidb-v1.0.6-linux-amd64.sha256
-#if [ $? != 0 ]; then
-#	echo "download tidb failed. exit!"
-#	exit 127
-#fi
-#tar zxf tidb-v1.0.6-linux-amd64.tar.gz
+rm storedeployer* -rf
+download_all_tars journeymidnight storedeployer
+#download_all_tars bjzhang storedeployer
+curl -O -L http://download.pingcap.org/tidb-v1.0.6-linux-amd64.sha256
+sha256sum -c tidb-v1.0.6-linux-amd64.sha256
+if [ $? != 0 ]; then
+	echo "tidb mising. download it!"
+	rm -rf tidb-v1.0.6-linux-amd64.tar.gz
+	curl -O -L http://download.pingcap.org/tidb-v1.0.6-linux-amd64.tar.gz
+	tar zxf tidb-v1.0.6-linux-amd64.tar.gz
+else
+	echo "tidb exist. continue"
+fi
+sha256sum -c tidb-v1.0.6-linux-amd64.sha256
+if [ $? != 0 ]; then
+	echo "download tidb failed. exit!"
+	exit 127
+fi
 cd ..
-#tar zcvf binaries.tar.gz binaries
 
