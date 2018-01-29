@@ -2,6 +2,7 @@
 
 account="bjzhang"
 token=$1
+CURL="curl --proxy localhost:8228"
 
 download_asset()
 {
@@ -18,7 +19,7 @@ download_asset()
 				ret=$?
 				if [ "$ret" = "0" ]; then
 					echo "downloading $name"
-					curl -o $name -L -H "Accept: application/octet-stream" -u $account:$token https://api.github.com/repos/$user/$repo/releases/assets/$id
+					$CURL -o $name -L -H "Accept: application/octet-stream" -u $account:$token https://api.github.com/repos/$user/$repo/releases/assets/$id
 					break
 				else
 					continue
@@ -26,7 +27,7 @@ download_asset()
 			done
 		else
 			echo "downloading $name"
-			curl -o $name -L -H "Accept: application/octet-stream" -u $account:$token https://api.github.com/repos/$user/$repo/releases/assets/$id
+			$CURL -o $name -L -H "Accept: application/octet-stream" -u $account:$token https://api.github.com/repos/$user/$repo/releases/assets/$id
 		fi
 	done
 }
@@ -38,7 +39,7 @@ download_rpms()
 	type=$3
 	filelist=$4
 	echo $filelist
-	json=`curl -u $account:$token -s https://api.github.com/repos/$user/$repo/releases/latest`
+	json=`$CURL -u $account:$token -s https://api.github.com/repos/$user/$repo/releases/latest`
 	if [ "$filelist" = "" ]; then
 		download_asset $user $repo "$json"
 	else
@@ -61,9 +62,9 @@ download_all_tars()
 {
 	user=$1
 	repo=$2
-	url=`curl -u $account:$token -s https://api.github.com/repos/$user/$repo/releases/latest | grep "tarball_url" | cut -d \" -f 4`
+	url=`$CURL -u $account:$token -s https://api.github.com/repos/$user/$repo/releases/latest | grep "tarball_url" | cut -d \" -f 4`
 	echo $url
-	curl -o ${repo}_${url##*/}.tar.gz -u $account:$token -L $url
+	$CURL -o ${repo}_${url##*/}.tar.gz -u $account:$token -L $url
 }
 
 if [ "$token" = "" ]; then
@@ -86,12 +87,12 @@ cd binaries
 rm storedeployer* -rf
 download_all_tars journeymidnight storedeployer
 #download_all_tars bjzhang storedeployer
-curl -O -L http://download.pingcap.org/tidb-v1.0.6-linux-amd64.sha256
+$CURL -O -L http://download.pingcap.org/tidb-v1.0.6-linux-amd64.sha256
 sha256sum -c tidb-v1.0.6-linux-amd64.sha256
 if [ $? != 0 ]; then
 	echo "tidb mising. download it!"
 	rm -rf tidb-v1.0.6-linux-amd64.tar.gz
-	curl -O -L http://download.pingcap.org/tidb-v1.0.6-linux-amd64.tar.gz
+	$CURL -O -L http://download.pingcap.org/tidb-v1.0.6-linux-amd64.tar.gz
 	tar zxf tidb-v1.0.6-linux-amd64.tar.gz
 else
 	echo "tidb exist. continue"
