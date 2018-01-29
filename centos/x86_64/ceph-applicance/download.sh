@@ -69,7 +69,7 @@ download_all_tars()
 
 
 function abort {
-	echo "Abort"
+	echo "Abort from $0"
 }
 
 set -e

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+function abort {
+	echo "Abort from $0."
+}
+
 set -e
 trap abort ERR
 
