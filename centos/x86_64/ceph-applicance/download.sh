@@ -86,14 +86,14 @@ echo "Downloading binaries"
 cd binaries
 #download_all_tars journeymidnight storedeployer
 download_all_tars bjzhang storedeployer
-curl -O -L http://download.pingcap.org/tidb-v1.0.6-linux-amd64.tar.gz
-curl -O -L http://download.pingcap.org/tidb-v1.0.6-linux-amd64.sha256
-sha256sum -c tidb-v1.0.6-linux-amd64.sha256
-if [ $? != 0 ]; then
-	echo "download tidb failed. exit!"
-	exit 127
-fi
-tar zxf tidb-v1.0.6-linux-amd64.tar.gz
+#curl -O -L http://download.pingcap.org/tidb-v1.0.6-linux-amd64.tar.gz
+#curl -O -L http://download.pingcap.org/tidb-v1.0.6-linux-amd64.sha256
+#sha256sum -c tidb-v1.0.6-linux-amd64.sha256
+#if [ $? != 0 ]; then
+#	echo "download tidb failed. exit!"
+#	exit 127
+#fi
+#tar zxf tidb-v1.0.6-linux-amd64.tar.gz
 cd ..
-tar zcvf binaries.tar.gz binaries
+#tar zcvf binaries.tar.gz binaries
 

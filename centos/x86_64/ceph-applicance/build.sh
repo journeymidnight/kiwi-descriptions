@@ -25,6 +25,10 @@ cd $home/works/source/kiwi-descriptions/centos/x86_64/ceph-applicance
 cd rpms
 rm repodata -rf
 createrepo .
+cd ..
+cd binaries
+cd ..
+tar zcvf binaries.tar.gz binaries
 
 echo "Cleaning up the previous build"
 mv $home/works/software/kiwi/build/image-root/var/lib/machines/ $home/works/software/kiwi.machines.old-`date "+%d%m%S"`
