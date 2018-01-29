@@ -67,13 +67,21 @@ download_all_tars()
 	$CURL -o ${repo}_${url##*/}.tar.gz -u $account:$token -L $url
 }
 
+
+function abort {
+	echo "Abort"
+}
+
+set -e
+trap abort ERR
+
 if [ "$token" = "" ]; then
 	echo "github api token mission, exit"
 	exit 127
 fi
 echo "Cleaning up"
-rm rpms/* -rf
 mkdir -p rpms binaries
+rm -rf rpms/*
 
 echo "Downloading rpms"
 cd rpms
@@ -86,7 +94,7 @@ echo "Downloading binaries"
 cd binaries
 rm storedeployer* -rf
 download_all_tars journeymidnight storedeployer
-#download_all_tars bjzhang storedeployer
+rm tidb-v1.0.6-linux-amd64.sha256
 $CURL -O -L http://download.pingcap.org/tidb-v1.0.6-linux-amd64.sha256
 sha256sum -c tidb-v1.0.6-linux-amd64.sha256
 if [ $? != 0 ]; then
