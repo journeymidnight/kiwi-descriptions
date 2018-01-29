@@ -29,7 +29,6 @@
                 <volume name="var" size="512"/>
             </systemdisk>
             <oemconfig>
-                <oem-systemsize>3072</oem-systemsize>
                 <oem-swap>false</oem-swap>
             </oemconfig>
         </type>
