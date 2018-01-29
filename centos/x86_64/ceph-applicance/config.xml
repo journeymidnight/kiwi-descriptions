@@ -47,7 +47,7 @@
         <source path="http://mirrors.haihangyun.com/epel/7/x86_64/"/>
     </repository>
     <repository type="rpm-md" alias="repo_os">
-        <source path="http://mirrors.haihangyun.com/centos/7/os/x86v_64/"/>
+        <source path="http://mirrors.haihangyun.com/centos/7/os/x86_64/"/>
     </repository>
     <repository type="rpm-md" alias="repo_updates">
         <source path="http://mirrors.haihangyun.com/centos/7/updates/x86_64/"/>
