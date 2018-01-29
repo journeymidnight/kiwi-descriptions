@@ -78,7 +78,6 @@
         <package name="lvm2" bootinclude="true"/>
 <!-- utils for our packages -->
         <package name="vim" bootinclude="true"/>
-        <package name="git"/>
         <package name="ntp"/>
         <package name="tar"/>
         <package name="gzip"/>
