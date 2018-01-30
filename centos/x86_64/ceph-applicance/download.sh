@@ -96,8 +96,8 @@ rm storedeployer* -rf
 download_all_tars journeymidnight storedeployer
 rm -f tidb-v1.0.6-linux-amd64.sha256
 $CURL -O -L http://download.pingcap.org/tidb-v1.0.6-linux-amd64.sha256
-sha256sum -c tidb-v1.0.6-linux-amd64.sha256
-if [ $? != 0 ]; then
+
+if [ "$(sha256sum -c tidb-v1.0.6-linux-amd64.sha256 2>/dev/null 1>/dev/null; exit $?)" != 0 ]; then
 	echo "tidb mising. download it!"
 	rm -rf tidb-v1.0.6-linux-amd64.tar.gz
 	$CURL -O -L http://download.pingcap.org/tidb-v1.0.6-linux-amd64.tar.gz
@@ -105,8 +105,7 @@ if [ $? != 0 ]; then
 else
 	echo "tidb exist. continue"
 fi
-sha256sum -c tidb-v1.0.6-linux-amd64.sha256
-if [ $? != 0 ]; then
+if [ "$(sha256sum -c tidb-v1.0.6-linux-amd64.sha256 2>/dev/null 1>/dev/null; exit $?)" != 0 ]; then
 	echo "download tidb failed. exit!"
 	exit 127
 fi
