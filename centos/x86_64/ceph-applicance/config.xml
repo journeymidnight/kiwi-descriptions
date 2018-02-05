@@ -15,7 +15,7 @@
         <file name="/lib/kbd"/>
     </strip>
     <preferences>
-        <version>0.7.00</version>
+        <version>0.7.06</version>
         <packagemanager>yum</packagemanager>
         <bootsplash-theme>charge</bootsplash-theme>
         <locale>en_US</locale>
@@ -25,11 +25,8 @@
         <type image="iso" flags="overlay" hybrid="true" firmware="uefi" hybridpersistent_filesystem="ext4" hybridpersistent="true"/>
         <type image="vmx" primary="true" filesystem="xfs" kernelcmdline="rhgb" bootloader="grub2" firmware="uefi"/>
         <type image="oem" initrd_system="dracut" filesystem="xfs" installiso="true" bootloader="grub2" firmware="uefi">
-            <systemdisk>
-                <volume name="var" freespace="100M" />
-                <volume name="@root" freespace="500M" />
-            </systemdisk>
             <oemconfig>
+                <oem-systemsize>2048</oem-systemsize>
                 <oem-swap>false</oem-swap>
             </oemconfig>
         </type>
