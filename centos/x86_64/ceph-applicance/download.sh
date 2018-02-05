@@ -67,13 +67,12 @@ download_all_tars()
 	$CURL -o ${repo}_${url##*/}.tar.gz -u $account:$token -L $url
 }
 
-
 function abort {
-	echo "Abort from $0"
+	echo "Abort at $1 from $0."
 }
 
 set -e
-trap abort ERR
+trap 'abort $LINENO' ERR
 
 if [ "$token" = "" ]; then
 	echo "github api token mission, exit"
