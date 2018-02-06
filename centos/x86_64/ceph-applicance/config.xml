@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<image schemaversion="6.8" name="Ceph-CentOS-07.0">
+<image schemaversion="6.8" name="Cluster-CentOS-07.0">
     <description type="system">
         <author>Bamvor Zhang</author>
         <contact>bamv2005@gmail.com</contact>
-        <specification>CentOS Enterprise 7 Ceph base on JeOS(Marcus Schaefer ms@suse.com). pre release 1</specification>
+        <specification>CentOS Enterprise 7 Cluster base on JeOS(Marcus Schaefer ms@suse.com). merge upstream patch</specification>
     </description>
     <strip type="delete">
         <file name="/usr/lib*/python*"/>
@@ -15,7 +15,7 @@
         <file name="/lib/kbd"/>
     </strip>
     <preferences>
-        <version>0.7.00</version>
+        <version>0.8.00</version>
         <packagemanager>yum</packagemanager>
         <bootsplash-theme>charge</bootsplash-theme>
         <locale>en_US</locale>
@@ -26,7 +26,7 @@
         <type image="vmx" primary="true" filesystem="xfs" kernelcmdline="rhgb" bootloader="grub2" firmware="uefi"/>
         <type image="oem" initrd_system="dracut" filesystem="xfs" installiso="true" bootloader="grub2" firmware="uefi">
             <systemdisk>
-                <volume name="var" freespace="100M" />
+                <volume name="var" freespace="500M" />
                 <volume name="@root" freespace="500M" />
             </systemdisk>
             <oemconfig>
