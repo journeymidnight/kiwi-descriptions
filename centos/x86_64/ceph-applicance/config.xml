@@ -15,7 +15,7 @@
         <file name="/lib/kbd"/>
     </strip>
     <preferences>
-        <version>0.8.00</version>
+        <version>0.8.01</version>
         <packagemanager>yum</packagemanager>
         <bootsplash-theme>charge</bootsplash-theme>
         <locale>en_US</locale>
@@ -87,6 +87,7 @@
         <package name="screen"/>
         <package name="mysql"/>
         <package name="patch"/>
+        <package name="augeas"/>
 <!-- ceph packages -->
         <package name="fabric"/>
         <package name="ceph"/>
